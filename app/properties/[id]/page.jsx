@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const PropertyPage = () => {
-  return (
-    <div>Property Page</div>
-  )
-}
+  return <div>Property Page</div>;
+};
 
-export default PropertyPage
+export default PropertyPage;
