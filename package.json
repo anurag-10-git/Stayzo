@@ -11,12 +11,14 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
+    "@maptiler/sdk": "^3.8.0",
     "cloudinary": "^2.2.0",
     "mapbox-gl": "^3.5.1",
     "mongodb": "^6.8.0",
     "mongoose": "^8.5.0",
     "next": "14.2.4",
     "next-auth": "^4.24.7",
+    "opencage-api-client": "^2.0.1",
     "photoswipe": "^5.4.4",
     "react": "^18",
     "react-dom": "^18",

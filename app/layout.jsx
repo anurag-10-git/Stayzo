@@ -3,6 +3,8 @@ import '@/assets/styles/globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import AuthProvider from '@/components/AuthProvider';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 export const metadata = {
   title: 'Property Pulse',
@@ -18,6 +20,7 @@ const MainLayout = ({ children }) => {
           <Navbar />
           <main className="min-h-screen">{children}</main>
           <Footer />
+          <ToastContainer />
         </body>
       </html>
     </AuthProvider>

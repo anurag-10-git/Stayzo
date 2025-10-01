@@ -6,13 +6,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { FaGoogle } from 'react-icons/fa';
-import {
-  signIn,
-  signOut,
-  useSession,
-  getProviders,
-  setProviders,
-} from 'next-auth/react';
+import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
 
 const Navbar = () => {
   const { data: session } = useSession();
@@ -21,7 +15,6 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const [providers, setProviders] = useState(null);
-  console.log('providers', providers);
 
   const pathname = usePathname();
 
@@ -73,7 +66,7 @@ const Navbar = () => {
               <Image className="h-10 w-auto" src={logo} alt="PropertyPulse" />
 
               <span className="hidden md:block text-white text-2xl font-bold ml-2">
-                PropertyPulse
+                Stayzo
               </span>
             </Link>
             {/* <!-- Desktop Menu Hidden below md screens --> */}
@@ -191,6 +184,7 @@ const Navbar = () => {
                       role="menuitem"
                       tabIndex="-1"
                       id="user-menu-item-0"
+                      onClick={() => setIsProfileMenuOpen(false)}
                     >
                       Your Profile
                     </Link>
@@ -200,6 +194,7 @@ const Navbar = () => {
                       role="menuitem"
                       tabIndex="-1"
                       id="user-menu-item-2"
+                      onClick={() => setIsProfileMenuOpen(false)}
                     >
                       Saved Properties
                     </Link>

@@ -7,6 +7,7 @@ import {
   FaRulerCombined,
   FaTimes,
 } from 'react-icons/fa';
+import PropertyMap from './PropertyMap';
 
 const PropertyDetail = ({ property }) => {
   return (
@@ -86,7 +87,7 @@ const PropertyDetail = ({ property }) => {
           {property.amenities.map((amenity, index) => (
             <li key={index}>
               <FaCheck className="inline-block text-green-600" />
-              &nbsp; Coffee
+              &nbsp;
               {amenity}
             </li>
           ))}
@@ -94,7 +95,7 @@ const PropertyDetail = ({ property }) => {
       </div>
       {/* <!-- Map --> */}
       <div className="bg-white p-6 rounded-lg shadow-md mt-6">
-        <div id="map"></div>
+        <PropertyMap property={property} />
       </div>
     </main>
   );
