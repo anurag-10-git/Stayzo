@@ -25,7 +25,6 @@ async function bookmarkProperty(propertyId) {
   if (isBookmarked) {
     // If already bookmarked, then remove
     user.bookmarks.pull(propertyId);
-
     message = 'Bookmark Removed';
     isBookmarked = false;
   } else {

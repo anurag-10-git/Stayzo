@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 
 export const metadata = {
-  title: 'Property Pulse',
+  title: 'Stayzo - rental, property, real estate',
   keywords: 'rental, property, real estate',
   description: 'find the perfect rental property',
 };
