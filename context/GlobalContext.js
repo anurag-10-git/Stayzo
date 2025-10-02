@@ -14,7 +14,7 @@ export function GlobalProvider({ children }) {
 
   useEffect(() => {
     if (session && session.user) {
-      getUnreadMessageCount().then((res) => {
+      getUnreadMessageCount().then(res => {
         if (res.count) setUnreadCount(res.count);
       });
     }

@@ -23,14 +23,16 @@ const PropertyCard = ({ property }) => {
 
   return (
     <div className="rounded-xl shadow-md relative">
-      <Image
-        src={property.images[0]}
-        alt=""
-        width="1200"
-        height="1200"
-        size="100vw"
-        className="w-full h-auto rounded-t-xl"
-      />
+      <Link href={`/properties/${property._id}`}>
+        <Image
+          src={property.images[0]}
+          alt=""
+          width="1200"
+          height="1200"
+          size="100vw"
+          className="w-full h-auto rounded-t-xl"
+        />
+      </Link>
       <div className="p-4">
         <div className="text-left md:text-center lg:text-left mb-6">
           <div className="text-gray-600">{property.type}</div>
@@ -75,12 +77,12 @@ const PropertyCard = ({ property }) => {
               {property.location.city},&nbsp;{property.location.state}{' '}
             </span>
           </div>
-          <a
+          <Link
             href={`/properties/${property._id}`}
             className="h-[36px] bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-center text-sm"
           >
             Details
-          </a>
+          </Link>
         </div>
       </div>
     </div>
