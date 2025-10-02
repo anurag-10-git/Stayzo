@@ -34,6 +34,7 @@ export const authOptions = {
           email: profile.email,
           username,
           image: profile.picture,
+          bookmarks: [],
         });
       }
 

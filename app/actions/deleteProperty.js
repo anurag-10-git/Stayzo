@@ -25,15 +25,12 @@ async function deleteProperty(propertyId) {
 
   const publicIds = property.images.map(imageUrl => {
     const parts = imageUrl.split('/');
-    console.log('parts//', parts);
-    console.log('parts-split//', parts.at(-1).split('.'));
     return parts.at(-1).split('.')[0];
   });
 
   // Delete images from Cloudinary
   if (publicIds.length > 0) {
     for (let publicId of publicIds) {
-      console.log('publicId' + publicId);
       await cloudinary.uploader.destroy('stayzo/' + publicId);
     }
   }

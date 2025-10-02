@@ -6,8 +6,6 @@ import '@maptiler/sdk/dist/maptiler-sdk.css';
 import Spinner from '@/components/Spinner';
 
 export default function PropertyMap({ property }) {
-  console.log(property);
-
   const mapContainer = useRef(null);
   const map = useRef(null);
   const [lat, setLat] = useState(null);
@@ -17,31 +15,24 @@ export default function PropertyMap({ property }) {
 
   useEffect(() => {
     async function fetchCoordinates() {
-      console.log(property.location);
       opencage
         .geocode({
           q: `${property.location.street} ${property.location.city} ${property.location.state} ${property.location.zipcode}`,
           key: process.env.NEXT_PUBLIC_OPENCAGE_API_KEY,
         })
         .then(data => {
-          // console.log(JSON.stringify(data));
           if (data.status.code === 200 && data.results.length > 0) {
             const place = data.results[0];
-            // console.log(place.formatted);
-            // console.log(place.annotations.timezone.name);
-            console.log(place.geometry);
+
             setLat(place.geometry.lat);
             setLng(place.geometry.lng);
             setLoading(false);
           } else {
-            console.log('Status', data.status.message);
-            console.log('total_results', data.total_results);
             setLoading(false);
             setGeoCodeError(true);
           }
         })
         .catch(error => {
-          // console.log(JSON.stringify(error));
           console.log('Error', error.message);
           setLoading(false);
           setGeoCodeError(true);
@@ -63,7 +54,7 @@ export default function PropertyMap({ property }) {
       maptilersdk.config.apiKey = process.env.NEXT_PUBLIC_MAPTILER_API_KEY;
       map.current = new maptilersdk.Map({
         container: mapContainer.current,
-        style: maptilersdk.MapStyle.STREETS,
+        style: maptilersdk.MapStyle.OPENSTREETMAP,
         center: [lng, lat],
         zoom: 14,
       });
