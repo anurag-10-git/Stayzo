@@ -3,7 +3,7 @@ import PropertyCard from '@/components/PropertyCard';
 import connectDB from '@/config/database';
 import Property from '@/models/Property';
 
-const PropertiesPage = async ({ searchParams: { page = 1, pageSize = 3 } }) => {
+const PropertiesPage = async ({ searchParams: { page = 1, pageSize = 6 } }) => {
   await connectDB();
   const skip = (page - 1) * pageSize;
   const total = await Property.countDocuments({});
